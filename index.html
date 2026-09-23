@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Accessible Enterprise Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">
+    Skip to main content
+  </a>
+
+  <header class="site-header">
+    <h1>Enterprise Dashboard</h1>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Dashboard</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout">
+
+    <aside class="sidebar" aria-label="Sidebar">
+      <nav aria-label="Sidebar navigation">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#activity">Activity</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact-form">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main-content">
+
+      <!-- Dashboard Overview -->
+      <section id="overview" aria-labelledby="overview-title">
+        <h2 id="overview-title">Dashboard Overview</h2>
+
+        <div class="dashboard-cards">
+          <article class="card">
+            <h3>Total Users</h3>
+            <p>1,250</p>
+          </article>
+
+          <article class="card">
+            <h3>Active Projects</h3>
+            <p>24</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section id="activity" aria-labelledby="activity-title">
+        <h2 id="activity-title">Recent Activity</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <caption>Recent project activity</caption>
+
+            <thead>
+              <tr>
+                <th scope="col">Project</th>
+                <th scope="col">Status</th>
+                <th scope="col">Owner</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Security Audit</td>
+                <td>In Progress</td>
+                <td>Admin</td>
+              </tr>
+
+              <tr>
+                <td>System Report</td>
+                <td>Completed</td>
+                <td>Manager</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Dynamic Product Store -->
+      <section id="products" aria-labelledby="products-title">
+        <h2 id="products-title">Product Store</h2>
+
+        <p>
+          Cart items:
+          <span id="cart-count" aria-live="polite">0</span>
+        </p>
+
+        <div class="product-controls">
+          <div>
+            <label for="search">Search products</label>
+            <input
+              type="search"
+              id="search"
+              placeholder="Type a product name..."
+            >
+          </div>
+
+          <div>
+            <label for="sort">Sort products</label>
+            <select id="sort">
+              <option value="default">Default</option>
+              <option value="low-high">Price: Low to High</option>
+              <option value="high-low">Price: High to Low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div
+          id="category-tabs"
+          class="category-tabs"
+          role="group"
+          aria-label="Filter products by category"
+        ></div>
+
+        <p id="loading" role="status" aria-live="polite" hidden>
+          Loading products...
+        </p>
+
+        <p id="error-banner" role="alert" hidden></p>
+
+        <div
+          id="product-list"
+          class="product-grid"
+          aria-live="polite"
+        ></div>
+      </section>
+
+      <!-- Contact Form -->
+      <section id="contact-form" aria-labelledby="form-title">
+        <h2 id="form-title">Contact Form</h2>
+
+        <form id="contactForm">
+          <fieldset>
+            <legend>Contact Information</legend>
+
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+              required
+              minlength="2"
+            >
+
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+            >
+
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" required>
+              <option value="">Choose a topic</option>
+              <option value="support">Support</option>
+              <option value="feedback">Feedback</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              minlength="10"
+            ></textarea>
+
+            <button type="submit">Submit</button>
+          </fieldset>
+        </form>
+
+        <p
+          id="form-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <!-- Modal Dialog -->
+      <section aria-labelledby="dialog-section-title">
+        <h2 id="dialog-section-title">Modal Dialog</h2>
+
+        <button type="button" id="openDialog">
+          Open Dialog
+        </button>
+
+        <dialog
+          id="infoDialog"
+          aria-labelledby="dialog-title"
+        >
+          <h2 id="dialog-title">Information</h2>
+
+          <p>
+            This is an accessible modal dialog example.
+          </p>
+
+          <button type="button" id="closeDialog">
+            Close Dialog
+          </button>
+        </dialog>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Enterprise Dashboard</p>
+  </footer>
+
+  <!-- Task 5 JavaScript module -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Enterprise Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">
+    Skip to main content
+  </a>
+
+  <header class="site-header">
+    <h1>Enterprise Dashboard</h1>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="settings.html" aria-current="page">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Sidebar">
+      <nav aria-label="Sidebar navigation">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="index.html#overview">Overview</a></li>
+          <li><a href="index.html#activity">Activity</a></li>
+          <li><a href="index.html#contact-form">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main-content">
+      <section aria-labelledby="settings-title">
+        <h2 id="settings-title">Settings</h2>
+        <p>Manage your dashboard preferences.</p>
+
+        <article class="card">
+          <h3>Profile Settings</h3>
+
+          <form>
+            <fieldset>
+              <legend>Profile Information</legend>
+
+              <label for="display-name">Display Name</label>
+              <input
+                type="text"
+                id="display-name"
+                name="display-name"
+                autocomplete="name"
+                required
+              >
+
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+              >
+
+              <button type="submit">Save Settings</button>
+            </fieldset>
+          </form>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Enterprise Dashboard</p>
+  </footer>
+</body>
+</html>

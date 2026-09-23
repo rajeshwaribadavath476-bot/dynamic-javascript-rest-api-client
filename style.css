@@ -1,0 +1,665 @@
+/* =========================================
+   RESPONSIVE DESIGN TOKENS
+========================================= */
+
+:root {
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #0f172a;
+
+  --color-background: #f1f5f9;
+  --color-surface: rgba(255, 255, 255, 0.85);
+  --color-surface-solid: #ffffff;
+
+  --color-text: #172554;
+  --color-text-muted: #475569;
+  --color-text-light: #ffffff;
+
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-warning: #f59e0b;
+
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 2rem;
+  --font-3xl: 2.5rem;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.12);
+  --shadow-lg: 0 15px 40px rgba(15, 23, 42, 0.18);
+
+  --transition: 0.25s ease;
+  --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+[data-theme="dark"] {
+  --color-background: #020617;
+  --color-surface: rgba(15, 23, 42, 0.85);
+  --color-surface-solid: #0f172a;
+  --color-text: #e2e8f0;
+  --color-text-muted: #cbd5e1;
+}
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  font-family: Arial, sans-serif;
+  font-size: var(--font-md);
+  line-height: 1.6;
+
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================
+   SKIP LINK
+========================================= */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: var(--space-sm);
+
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  left: var(--space-sm);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+  width: 100%;
+  padding: var(--space-lg);
+
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+
+  box-shadow: var(--shadow-md);
+}
+
+.site-header h1 {
+  margin: 0 0 var(--space-md);
+  font-size: var(--font-2xl);
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.site-header nav ul,
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.site-header a,
+.sidebar a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: bold;
+
+  transition:
+    color var(--transition),
+    background var(--transition);
+}
+
+.site-header a:hover,
+.sidebar a:hover {
+  color: #bfdbfe;
+}
+
+/* =========================================
+   MAIN RESPONSIVE LAYOUT
+========================================= */
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  min-height: 70vh;
+  width: 100%;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+  background: #1e293b;
+  color: white;
+  padding: var(--space-lg);
+}
+
+.sidebar li {
+  margin: var(--space-md) 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+main {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+section {
+  width: 100%;
+  margin: var(--space-lg) 0;
+  padding: var(--space-lg);
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-md);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: var(--font-xl);
+}
+
+/* =========================================
+   DASHBOARD CARDS
+========================================= */
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+.card {
+  min-width: 0;
+  padding: var(--space-lg);
+
+  background: var(--color-surface-solid);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: var(--font-lg);
+}
+
+.card p {
+  font-size: var(--font-2xl);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 500px;
+
+  border-collapse: collapse;
+  background: var(--color-surface-solid);
+}
+
+caption {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: var(--space-sm);
+}
+
+th,
+td {
+  padding: var(--space-md);
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+th {
+  background: #e2e8f0;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+fieldset {
+  border: 1px solid #cbd5e1;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 var(--space-sm);
+}
+
+label {
+  display: block;
+  margin-top: var(--space-md);
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+
+  padding: var(--space-sm);
+  margin-top: var(--space-xs);
+
+  border: 2px solid #94a3b8;
+  border-radius: var(--radius-sm);
+
+  font: inherit;
+  background: var(--color-surface-solid);
+  color: var(--color-text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+  background: var(--color-primary);
+  color: white;
+
+  padding: var(--space-sm) var(--space-lg);
+
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  font-weight: bold;
+
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-warning);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   FORM VALIDATION
+========================================= */
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: var(--color-danger);
+}
+
+input:valid,
+select:valid,
+textarea:valid {
+  border-color: var(--color-success);
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+dialog {
+  width: min(90%, 500px);
+
+  border: none;
+  border-radius: var(--radius-lg);
+
+  padding: var(--space-xl);
+
+  background: var(--color-surface-solid);
+  color: var(--color-text);
+
+  box-shadow: var(--shadow-lg);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================
+   PRODUCT STORE
+========================================= */
+
+/* Smaller product cards with responsive columns */
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#product-list > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Smaller product images */
+#product-list img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+}
+
+/* Product card styling */
+#product-list article,
+#product-list .product-card {
+  min-width: 0;
+  padding: 14px;
+
+  background: var(--color-surface-solid);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+#product-list h3 {
+  font-size: var(--font-sm);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+#product-list p {
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+}
+
+#product-list button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 10px;
+  font-size: var(--font-sm);
+}
+
+/* Product search and sorting controls */
+#search,
+#sort {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 12px;
+}
+
+/* Category buttons wrap instead of overlapping */
+#category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+#category-tabs button {
+  flex: 0 1 auto;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Loading and error messages */
+#loading,
+#error-banner {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  margin: 12px 0;
+}
+
+#loading {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+#error-banner {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Cart display */
+#cart-count {
+  display: inline-block;
+  min-width: 28px;
+  padding: 2px 8px;
+
+  background: var(--color-primary);
+  color: white;
+
+  border-radius: 999px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  width: 100%;
+
+  background: var(--color-secondary);
+  color: white;
+
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+/* =========================================
+   320px - SMALL MOBILE
+========================================= */
+
+@media (min-width: 320px) {
+  main {
+    padding: var(--space-md);
+  }
+
+  .site-header {
+    padding: var(--space-md);
+  }
+
+  section {
+    padding: var(--space-md);
+  }
+}
+
+/* =========================================
+   768px - TABLET
+========================================= */
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    min-height: 100%;
+  }
+
+  main {
+    padding: var(--space-xl);
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  section {
+    padding: var(--space-xl);
+  }
+
+  #search,
+  #sort {
+    width: auto;
+    min-width: 220px;
+  }
+
+  #product-list {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+}
+
+/* =========================================
+   1024px - DESKTOP
+========================================= */
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  main {
+    padding: var(--space-2xl);
+  }
+}
+
+/* =========================================
+   1440px - LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1440px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  main {
+    padding: var(--space-2xl);
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
